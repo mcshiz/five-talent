@@ -1,0 +1,34 @@
+{
+  "name": "five-talent",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start ",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "client": "PORT=3103 npm start",
+    "server": "cd server &&PORT=3102 nodemon app.js && ../node_modules/.bin/sequelize db:seed:all",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "proxy": "http://localhost:3102",
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
