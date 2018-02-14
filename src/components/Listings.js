@@ -17,10 +17,10 @@ class Listings extends Component {
 			listings = this.props.listings.map((home, index) => (
 				<li key={index} className="list-group-item">
 					<div className="row">
-						<div className="col-2">
-							{/*<img src={home.pictures[0]} alt=""/>*/}
+						<div className="col-3">
+							<img src="http://via.placeholder.com/150" alt=""/>
 						</div>
-						<div className="col-8 text-left">
+						<div className="col-7 text-left">
 							<b>Price:</b> <span>${home.salesPrice.toLocaleString(undefined, {maximumFractionDigits:2})}</span> <br/>
 							<b>Address:</b> <span>{home.street1} {home.street2} {home.city} {home.state} {home.zip}</span> <br/>
 							<b>Square Footage:</b> <span>{home.squareFeet}</span> <br/>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ImageTools from '../utilities/ImageTools'
 import FormInput from "./FormInput";
-import ImageUploader from './ImageUploader';
 class EditListing extends Component {
 	constructor(props) {
 		super(props)
@@ -12,7 +10,6 @@ class EditListing extends Component {
 		this.handleFormUpdate = this.handleFormUpdate.bind(this)
 		this.handleFormSubmit = this.handleFormSubmit.bind(this)
 		this.deleteListing = this.deleteListing.bind(this)
-		this.uploadImage = this.uploadImage.bind(this)
 	}
 	componentWillMount() {
 		const { match: { params } } = this.props;
@@ -25,21 +22,6 @@ class EditListing extends Component {
 				})
 			}).catch((error) => {
 			console.log(error)
-		})
-	}
-	uploadImage(e) {
-		let file = e.target.files[0]
-		let reader = new FileReader()
-		file.src = reader.result
-
-		ImageTools.resize(file, {
-			width: 810, // maximum width
-			height: 375 // maximum height
-		}, (blob, didItResize) => {
-			console.log(blob)
-			let update = Object.assign({}, this.state.home, {pictures: URL.createObjectURL(file)})
-			this.setState({home: update})
-			console.log(this.state)
 		})
 	}
 	handleFormUpdate(e) {
@@ -90,7 +72,7 @@ class EditListing extends Component {
 	render() {
 		return (
 			this.state.loading ? <div>Loading...</div> :
-			<div className="row mt-5">
+			<div className="row mt-5 mb-5">
 				<div className="col-12">
 					<h1>Edit</h1>
 				</div>
@@ -98,7 +80,6 @@ class EditListing extends Component {
 				<div className="col-8 ">
 					<form>
 						<FormInput fields={this.state.home} update={this.handleFormUpdate}/>
-						<ImageUploader/>
 						<button type="submit" className="btn btn-primary" onClick={this.handleFormSubmit}>Update</button>
 						<button className="btn btn-danger ml-2" onClick={this.deleteListing}>Delete</button>
 					</form>
