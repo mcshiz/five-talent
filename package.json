@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "client": "PORT=3103 npm start",
+    "client": "npm start",
     "server": "cd server && PORT=3102 node ./bin/www",
     "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\""
   },
