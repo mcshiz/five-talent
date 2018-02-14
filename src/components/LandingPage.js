@@ -26,12 +26,12 @@ class LandingPage extends Component {
 	}
 	render() {
 		return (
-			<div className="row mt-5">
+			<div className="row mb-5 mt-5">
 				<div className="col-4">
 					<SearchForm renderSearchResults={this.renderSearchResults}/>
 				</div>
 				{this.state.loading ?
-					<li className="list-group-item">Loading...</li>:
+					<li className="list-group-item col-12">Loading...</li>:
 					<Listings listings={this.state.listings} {...this.props}/>
 				}
 			</div>

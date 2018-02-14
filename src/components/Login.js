@@ -29,26 +29,26 @@ class HomeDetails extends Component {
 
 	render() {
 		return (
-		<div className="row mt-5">
-			<div className="col-2"></div>
-			<div className="col-8 ">
-				<form>
-					<div className="form-group row">
-						<label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
-						<div className="col-10">
-							<input type="email" name="email" className="form-control" placeholder="Email Name" value={this.state.email} onChange={this.updateEmail}/>
+			<div className="row mt-5">
+				<div className="col-2"></div>
+				<div className="col-8 ">
+					<form>
+						<div className="form-group row">
+							<label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+							<div className="col-10">
+								<input type="email" name="email" className="form-control" placeholder="Email Name" value={this.state.email} onChange={this.updateEmail}/>
+							</div>
 						</div>
-					</div>
-					<div className="form-group row">
-						<label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-						<div className="col-10">
-							<input type="password" name="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.updatePassword}/>
+						<div className="form-group row">
+							<label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
+							<div className="col-10">
+								<input type="password" name="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.updatePassword}/>
+							</div>
 						</div>
-					</div>
-					<button type="submit" className="btn btn-primary" onClick={(event) => this.handleLogin(event)}>Login</button>
-				</form>
+						<button type="submit" className="btn btn-primary" onClick={(event) => this.handleLogin(event)}>Login</button>
+					</form>
+				</div>
 			</div>
-		</div>
 		);
 	}
 }

@@ -58,7 +58,7 @@ class AddListing extends Component {
 
 	render() {
 		return (
-				<div className="row mt-5">
+				<div className="row mt-5 mb-5">
 					<div className="col-12">
 						<h1>Add New Listing</h1>
 					</div>
