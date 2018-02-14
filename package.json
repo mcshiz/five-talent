@@ -14,6 +14,7 @@
     "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^3.2.0"
@@ -24,8 +25,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "client": "PORT=3103 npm start",
-    "server": "cd server &&PORT=3102 nodemon app.js && ../node_modules/.bin/sequelize db:seed:all",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "server": "cd server && PORT=3102 nodemon ./bin/www",
+    "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\""
   },
   "proxy": "http://localhost:3102",
   "devDependencies": {

@@ -35,9 +35,8 @@ module.exports = function(passport, user) {
 					} else {
 						var userpassword = generateHash(password);
 						var data = {
-							first_name: req.body.first_name,
-							last_name: req.body.last_name,
-							username: req.body.username,
+							firstName: req.body.first_name,
+							lastName: req.body.last_name,
 							email: req.body.email,
 							password: userpassword
 						};
@@ -106,16 +105,16 @@ module.exports = function(passport, user) {
 				id: jwt_payload.id
 			}
 		})
-			.then((user) => {
-				if (!user) {
-					return done("Invalid Token", false);
-				}
-				if (user) {
-					return done(null, user);
-				} else {
-					return done(null, false);
-				}
-			})
+		.then((user) => {
+			if (!user) {
+				return done("Invalid Token", false);
+			}
+			if (user) {
+				return done(null, user);
+			} else {
+				return done(null, false);
+			}
+		})
 	}));
 
 

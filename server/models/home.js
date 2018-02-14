@@ -1,7 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Home = sequelize.define('Home', {
-    mls: DataTypes.UUID,
+    mls: {
+      type: DataTypes.INTEGER,
+      unique: true,
+      allowNull: false
+	},
     street1: DataTypes.STRING,
     street2: DataTypes.STRING,
     city: DataTypes.STRING,
@@ -9,12 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     zip: DataTypes.STRING,
     neighborhood: DataTypes.STRING,
     salesPrice: DataTypes.FLOAT,
-    dateListed: DataTypes.DATE,
+    dateListed: {
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
     bedrooms: DataTypes.INTEGER,
     bathrooms: DataTypes.FLOAT,
-    garageSize: DataTypes.STRING,
+    garageSize: DataTypes.FLOAT,
     squareFeet: DataTypes.FLOAT,
-    lotSize: DataTypes.STRING,
+    lotSize: DataTypes.FLOAT,
     description: DataTypes.TEXT
   }, {
     classMethods: {

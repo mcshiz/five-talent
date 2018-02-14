@@ -1,0 +1,6 @@
+{
+  "events": {
+    "restart": "../node_modules/.bin/sequelize db:seed:all",
+    "start": "../node_modules/.bin/sequelize db:seed:all"
+  }
+}

@@ -22,6 +22,7 @@ router.post('/signup', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
 	passport.authenticate('local-login', function(err, user, info) {
+
 		if (err) {
 			return next(err); // will generate a 500 error
 		}

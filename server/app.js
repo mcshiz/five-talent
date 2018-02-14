@@ -3,6 +3,11 @@ const path = require('path');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 
+
+
+const authRoute = require('./routes/auth.js');
+const homesRoute = require('./routes/homes.js');
+
 const app = express();
 
 require('dotenv').config({path: './config.env'});
@@ -16,8 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
 
-const authRoute = require('./routes/auth.js');
 app.use('/', authRoute);
+app.use('/homes', homesRoute);
+
 
 //Models
 var models = require("./models");
