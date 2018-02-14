@@ -7,8 +7,9 @@ const jwt = require('jwt-simple');
 
 //get all homes
 router.get('/', function(req, res, next) {
+	// Dont need all properties for initial home listing, lets just select a few
 	models.Home.findAll({
-		attributes: ['mls', 'street1', 'street2', 'city', 'state', 'zip', 'bedrooms', 'bathrooms', 'squareFeet']
+		attributes: ['mls', 'salesPrice', 'street1', 'street2', 'city', 'state', 'zip', 'bedrooms', 'bathrooms', 'squareFeet']
 	})
 	.then((homes) => {
 		if (homes) {
@@ -23,6 +24,12 @@ router.get('/', function(req, res, next) {
 });
 router.get('/search', function(req, res, next) {
 	let query = req.query;
+	//sequelize doesn't like to search with blank params
+	for(let key in query) {
+		if(query[key] === '') {
+			delete query[key]
+		}
+	}
 	models.Home.findAll({
 		where: query
 	})
@@ -59,10 +66,6 @@ router.get('/:mls', function(req, res, next) {
 });
 
 
-
-
-
-
 // add a home
 router.post('/', passport.authenticate('jwt', { session: false }),
 	function(req, res) {
@@ -85,7 +88,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
 						state: data.state,
 						zip: data.zip,
 						neighborhood: data.neighborhood,
-						salesPrice: data.salesPrice,
+						salesPrice: parseFloat(data.salesPrice),
 						dateListed: new Date(),
 						bedrooms: data.bedrooms,
 						bathrooms: data.bathrooms,
@@ -127,7 +130,6 @@ router.put('/', passport.authenticate('jwt', { session: false }),
 						zip: data.zip,
 						neighborhood: data.neighborhood,
 						salesPrice: data.salesPrice,
-						dateListed: new Date(),
 						bedrooms: data.bedrooms,
 						bathrooms: data.bathrooms,
 						garageSize: data.garageSize,

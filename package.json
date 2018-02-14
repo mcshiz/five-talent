@@ -5,6 +5,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
+    "child_process": "^1.0.2",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "jwt-simple": "^0.5.1",
@@ -14,10 +15,12 @@
     "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.8",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "sequelize": "^4.33.4",
-    "sequelize-cli": "^3.2.0"
+    "sequelize-cli": "^3.2.0",
+    "with-query": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start ",
@@ -25,7 +28,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "client": "PORT=3103 npm start",
-    "server": "cd server && PORT=3102 nodemon ./bin/www",
+    "server": "cd server && PORT=3102 node ./bin/www",
     "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\""
   },
   "proxy": "http://localhost:3102",

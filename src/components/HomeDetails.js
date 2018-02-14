@@ -22,10 +22,15 @@ class HomeDetails extends Component {
 		})
 	}
 	render() {
+		let details = Object.keys(this.state.home).map((key, index) => (
+			<li className="list-group-item" key={index}><b>{key}:</b> {this.state.home[key]}</li>
+		))
 		return (
 			<div>
 				<h1>Details</h1>
-				{this.state.home.bedrooms}
+				<ul className="list-group text-left">
+					{details}
+				</ul>
 			</div>
 		);
 	}
