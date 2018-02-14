@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 class HomeDetails extends Component {
 	constructor(props) {
 		super(props)
@@ -26,11 +25,13 @@ class HomeDetails extends Component {
 			<li className="list-group-item" key={index}><b>{key}:</b> {this.state.home[key]}</li>
 		))
 		return (
-			<div>
-				<h1>Details</h1>
-				<ul className="list-group text-left">
-					{details}
-				</ul>
+			<div className="row mt-5 mb-5">
+				<div className="col-12">
+					<h1>Details</h1>
+					<ul className="list-group text-left">
+						{details}
+					</ul>
+				</div>
 			</div>
 		);
 	}
