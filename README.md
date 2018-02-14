@@ -14,7 +14,11 @@
 
 ##### Run Project
 
-1. `npm dev run`
+1. `npm run start`
+
+### DEMO USER
+1. email: brianmccall88@gmail.com
+2. password: testing13
 
 
 ##### Troubleshooting
